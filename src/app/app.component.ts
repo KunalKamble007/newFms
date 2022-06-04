@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Flight-Management-System';
+
+  angForm: FormGroup;
+  constructor(private fb: FormBuilder) {
+   this.createForm();
+ }
+  createForm() {
+   this.angForm = this.fb.group({
+      name: ['', Validators.required ]
+   });
+ }
 }
